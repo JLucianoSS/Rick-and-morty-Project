@@ -1,3 +1,9 @@
+# PROYECTO INTEGRADOR RICK AND MORTY
+
+Proyecto en constante desarrollo y actualización. 
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
