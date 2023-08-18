@@ -1,14 +1,16 @@
-import { GET_CHARACTER, ADD_FAV, FILTER, ORDER, REMOVE_FAV } from "./actions";
+import { GET_CHARACTER,GET_CHARACTER_DETAIL, CLEAN_DETAIL, ADD_FAV, FILTER, ORDER, REMOVE_FAV } from "./actions";
 
 const initialState = {
-  characters: [], // home state
-  myFavorites: [], //favorites state
-  allCharacters: [], //aux order and filterin favorites
+  characters: [],       // home state
+  characterDetail: [],  // detail state
+  myFavorites: [],      //favorites state
+  allCharacters: [],    //aux order and filter favorites
 };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-    
+
+    /*AÑADE PERSONAJES */
     case GET_CHARACTER:
       const characterExist = state.characters.some(
         (character) => character.id === action.payload.id
@@ -23,12 +25,30 @@ const rootReducer = (state = initialState, action) => {
         return state;
       }
 
+    /*DETALLA  UN PERSONAJE */
+    case GET_CHARACTER_DETAIL:
+      return {
+        ...state,
+        characterDetail: action.payload
+      }
+
+    /*LIMPIA EL DETALLE DE UN PERSONAJE */
+    case CLEAN_DETAIL:
+      return {
+        ...state,
+        characterDetail: {}
+      }
+
+
+    /*AÑADE PERSONAJES A FAVORITOS */
     case ADD_FAV:
       return {
         ...state,
         allCharacters: [...state.allCharacters, action.payload],
         myFavorites: [...state.myFavorites, action.payload],
       };
+
+    /*BORRA PERSONAJES DE FAVORITOS */
     case REMOVE_FAV:
       return {
         ...state,
@@ -37,6 +57,7 @@ const rootReducer = (state = initialState, action) => {
         ),
       };
 
+    /*FILTRA PERSONAJES EN FAVORITOS */
     case FILTER:
       const filterByGender = state.allCharacters.filter((char) => {
         if (char.gender === action.payload) {
@@ -51,6 +72,7 @@ const rootReducer = (state = initialState, action) => {
         myFavorites: filterByGender,
       };
 
+    /*ORDENA PERSONAJES EN FAVORITOS */
     case ORDER:
       const ordered = state.allCharacters.sort((a, b) => {
         if (action.payload === "A") {

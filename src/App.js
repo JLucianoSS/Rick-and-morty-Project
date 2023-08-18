@@ -13,7 +13,7 @@ import Error from "./views/Error/Error";
 import { useState, useEffect } from "react";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 
-import { getCharacter } from "./redux/actions";
+import { getCharacter } from "./redux/actions-types";
 import { useDispatch, useSelector } from "react-redux";
 
 function App() {
