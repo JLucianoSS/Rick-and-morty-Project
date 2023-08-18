@@ -1,0 +1,19 @@
+
+.container_selects{
+    border: 2px solid greenyellow;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+
+
+
+.containerFavorites{
+    /* border: 2px solid purple; */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    padding: 20px;
+}

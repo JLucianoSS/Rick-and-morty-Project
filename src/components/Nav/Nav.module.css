@@ -1,0 +1,28 @@
+.containerNav{
+    background-color: rgb(233, 233, 233) ;
+    border: 1px solid gray;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+    height: 50px;
+}
+
+.logo{
+    margin-top: 20px;
+    /* border: 2px solid black; */
+    align-self: center;
+    width: 330px;
+    height: 160px;
+}
+
+.menu{
+    /* border: 2px solid green; */
+    align-self: center;
+    
+}
+
+.searchBar{
+    /* border: 2px solid purple; */
+    align-self: center;
+}
+
