@@ -68,11 +68,8 @@ const rootReducer = (state = initialState, action) => {
     /*FILTRA PERSONAJES EN FAVORITOS */
     case FILTER:
       const filterByGender = state.allCharacters.filter((char) => {
-        if (char.gender === action.payload) {
-          return true;
-        } else if (action.payload === "Todos") {
-          return true;
-        }
+        if (char.gender === action.payload) return true;
+        else if (action.payload === "Todos") return true;    
         return false;
       });
       return {
@@ -82,12 +79,9 @@ const rootReducer = (state = initialState, action) => {
 
     /*ORDENA PERSONAJES EN FAVORITOS */
     case ORDER:
-      const ordered = state.allCharacters.sort((a, b) => {
-        if (action.payload === "A") {
-          return a.id - b.id;
-        } else if (action.payload === "D") {
-          return b.id - a.id;
-        }
+      const ordered = state.myFavorites.sort((a, b) => {
+        if (action.payload === "A") return a.id - b.id;
+        else if (action.payload === "D") return b.id - a.id;
         return 0;
       });
       return {
