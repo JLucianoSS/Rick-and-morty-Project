@@ -9,6 +9,12 @@ export default function SearchBar(props) {
       setId(event.target.value);
    }
 
+   const handleKeyPress = (event) => {
+      if (event.key === 'Enter') {
+         handleClick();
+      }
+   }
+
    //grapeo de onSearch
    const handleClick = () => {
       props.onSearch(id);
@@ -17,8 +23,8 @@ export default function SearchBar(props) {
 
    return (
       <div className={style.contenedorSearchBar}>
-         <input type='search' value={id} onChange={handleChange} placeholder="id"/>
-         <button onClick={handleClick}>Agregar</button>
+         <input type='search' onKeyUp={handleKeyPress} value={id} onChange={handleChange} placeholder="id"/>
+         <button onClick={handleClick} onKey={handleKeyPress} on>Agregar</button>
 
          {/* Grapear significa envolver en algo una funcion GRAPEAR */}
       </div>

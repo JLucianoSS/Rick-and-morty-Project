@@ -1,6 +1,6 @@
 
 /*actions-types */
-const {GET_CHARACTER,GET_CHARACTER_DETAIL,CLEAN_DETAIL,ADD_FAV,REMOVE_FAV,ORDER,FILTER} =  require('./actions')
+const {GET_CHARACTER,GET_CHARACTER_DETAIL,ADD_CHARACTERS,CLEAN_DETAIL,ADD_FAV,REMOVE_FAV,ORDER,FILTER} =  require('./actions')
 
 
 /*actions-type CREATORS*/
@@ -27,6 +27,14 @@ const getCharacterDetail = (id) => {
   }
 }
 
+//ESTO AÑADE UN NUEVO ARRAY DE PERSONAJES Y APOYA PARA EL BORRADO
+const addCharacters = (characters) => {
+  return { type: ADD_CHARACTERS, payload: characters };
+};
+
+
+
+//clean detail
 const cleanDetail = () => {
   return {type: CLEAN_DETAIL}
 }
@@ -52,6 +60,7 @@ actions-type_creators(funciones) */
 module.exports = {
   getCharacter,
   getCharacterDetail,
+  addCharacters,
   cleanDetail,
   addFav,
   removeFav,

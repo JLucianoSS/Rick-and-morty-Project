@@ -6,22 +6,42 @@ import { filterCards, orderCards } from "../../redux/actions-types";
 import style from "./Favorites.module.css";
 
 const Favorites = () => {
-  const myFavorites = useSelector((state) => state.myFavorites);
+
+
+
+  /*
+  Ojo: El estado local aux se utiliza para renderizar correctamente
+   los componentes. Es decir cuando se ordenan los personajes en myFavorites.
+   Esto es necesario ya que cada componente debe eescuchar correctamente 
+   cuando se realiza un cambio. 
+    - Cuando se ordenan: en el reducer se realiza un ordenaminto 
+      con sort sobre los personajes favoritos (NO CAMBIA EL TAMAÑO, SOLO EL
+        EL ORDEN). POR ESO SE NECESITA aux PARA QUE ESE ESTADO LOCAL AYUDE 
+        A RENDERIZAR EL COMPONENTE NUEVAMENTE.
+    - Cuando se filtran: en el reducer se realiza un filtrado con filter
+      eso quiere decir que cambia(REDUCEN) los personajes favoritos (cards)
+    ESTO SE PUEDE EVITAR DESESTRUCTURANDO EL ESTADO GLOBAL DE REDUX
+    DE LA SIGUIENTE MANERA: 
+    */
+   // const { myFavorites } = useSelector((state) => state);
+  const  myFavorites  = useSelector((state) => state.myFavorites);
   const dispatch = useDispatch();
-  // const [aux, setAux] = useState(false);
+  const [aux, setAux] = useState(false);
 
   const handlerOrder = (event) => {
     const order = event.target.value;
     dispatch(orderCards(order)); // A o D
+    setAux(!aux);
   };
   const handlerFilter = (event) => {
     const filter = event.target.value;
     dispatch(filterCards(filter)); // male, female o ....
+    setAux(!aux);
   };
 
   useEffect(() => {
     console.log(myFavorites);
-  }, []);
+  },);
 
   return (
     <>

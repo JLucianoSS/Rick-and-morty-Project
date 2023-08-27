@@ -2,6 +2,7 @@
 /*actions-type */
 const GET_CHARACTER = "GET_CHARACTER";
 const GET_CHARACTER_DETAIL = "GET_CHARACTER_DETAIL";
+const ADD_CHARACTERS = "ADD_CHARACTERS";
 const CLEAN_DETAIL = 'CLEAN_DETAIL';
 
 const ADD_FAV = "ADD_FAV";
@@ -14,6 +15,7 @@ const ORDER = "ORDER";
 module.exports = {
     GET_CHARACTER,
     GET_CHARACTER_DETAIL,
+    ADD_CHARACTERS,
     CLEAN_DETAIL,
     ADD_FAV,
     REMOVE_FAV,

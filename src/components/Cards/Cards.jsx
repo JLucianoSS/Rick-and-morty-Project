@@ -1,7 +1,7 @@
 import Card from "../Card/Card";
 import style from "./Cards.module.css";
 
-export default function Cards(props) {
+const Cards = (props) => {
   const { characters, onClose } = props;
 
   return (
@@ -24,6 +24,8 @@ export default function Cards(props) {
     </div>
   );
 }
+
+export default Cards;
 
 /*
  - El componenete Cards mapea la propiedad characters que viene por props y asigna cada propiedad a Card

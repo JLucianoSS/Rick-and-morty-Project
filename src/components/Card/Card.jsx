@@ -18,7 +18,7 @@ export default function Card(props) {
 
   /*CUANDO SE MODIFICA EL ESTADO */
   useEffect(() => {
-    console.log(myFavorites);
+    console.log('Favoritos ingresados',myFavorites);
     myFavorites.forEach((fav) => {
       if (fav.id === props.id) {
         setIsFav(true);

@@ -1,4 +1,4 @@
-import { GET_CHARACTER,GET_CHARACTER_DETAIL, CLEAN_DETAIL, ADD_FAV, FILTER, ORDER, REMOVE_FAV } from "./actions";
+import { GET_CHARACTER,GET_CHARACTER_DETAIL, ADD_CHARACTERS,CLEAN_DETAIL, ADD_FAV, FILTER, ORDER, REMOVE_FAV } from "./actions";
 
 const initialState = {
   characters: [],       // home state
@@ -21,7 +21,7 @@ const rootReducer = (state = initialState, action) => {
           characters: [...state.characters, action.payload],
         };
       } else {
-        window.alert("Cuidaoo, ese personaje ya existe");
+        window.alert("El personaje que intenta ingresar ya existe");
         return state;
       }
 
@@ -30,6 +30,14 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
         characterDetail: action.payload
+      }
+
+    /*BORRA/ES DECIR CREA UN NUEVO ARRAY DE 
+    CHARACTERS */
+    case ADD_CHARACTERS:
+      return {
+        ...state,
+        characters:action.payload
       }
 
     /*LIMPIA EL DETALLE DE UN PERSONAJE */

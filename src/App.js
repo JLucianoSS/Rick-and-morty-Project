@@ -13,7 +13,7 @@ import Error from "./views/Error/Error";
 import { useState, useEffect } from "react";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 
-import { getCharacter } from "./redux/actions-types";
+import { getCharacter, addCharacters } from "./redux/actions-types";
 import { useDispatch, useSelector } from "react-redux";
 
 function App() {
@@ -42,7 +42,7 @@ function App() {
 
   const logout = () => {
     setAccess(false);
-    // setCharacters([]);
+    dispatch(addCharacters([]));
     navigate("/");
   };
 
@@ -88,6 +88,7 @@ function App() {
       (character) => character.id !== Number(id)
     );
     // setCharacters(filterCharacters)
+    dispatch(addCharacters(filterCharacters));
   }
 
   /* RENDERIZADO DE COMPONENTES */
