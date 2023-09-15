@@ -3,11 +3,16 @@
 const {GET_CHARACTER,GET_CHARACTER_DETAIL,ADD_CHARACTERS,CLEAN_DETAIL,ADD_FAV,REMOVE_FAV,ORDER,FILTER} =  require('./actions')
 
 
+// const API = "rickandmortyapi.com/api";
+const LOCAL = "localhost:3001/rickandmorty";
+
+
+
 /*actions-type CREATORS*/
 // add character in home
 const getCharacter = (id) => {
   return function (dispatch) {
-    return fetch(`https://rickandmortyapi.com/api/character/${id}`)
+    return fetch(`http://${LOCAL}/character/${id}`)
     .then((response) => response.json())
     .then((data) => {
         dispatch({type:GET_CHARACTER,payload:data})
@@ -19,7 +24,7 @@ const getCharacter = (id) => {
 // use character in detail
 const getCharacterDetail = (id) => {
   return function (dispatch){
-    fetch(`https://rickandmortyapi.com/api/character/${id}`)
+    fetch(`http://${LOCAL}/${id}`)
     .then((response) => response.json())
     .then((data) => {
         dispatch({type:GET_CHARACTER_DETAIL,payload:data})
@@ -54,6 +59,18 @@ const filterCards = (gender) => {
 const orderCards = (order) => {
   return { type: ORDER, payload: order };
 };
+
+/* PETICION AL SERVER DE LA API DE RICK AND MORTY */
+// const getCharacter = (id) => {
+//   return function (dispatch) {
+//     return fetch(`https://rickandmortyapi.com/api/character/${id}`)
+//     .then((response) => response.json())
+//     .then((data) => {
+//         dispatch({type:GET_CHARACTER,payload:data})
+//     });
+//   };
+// };
+
 
 /*Se deben exportar tanto las actions-type(constantes) como las
 actions-type_creators(funciones) */

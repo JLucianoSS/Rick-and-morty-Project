@@ -1,9 +1,15 @@
+import { useEffect } from "react";
 import Cards from "../../components/Cards/Cards";
 import style from "./Home.module.css";
 import getRandomId from './utils'
 
 const Home = (props) => {
   const {characters, onSearch, onClose, } = props;
+
+  useEffect(()=>{
+    console.log("CARACTERES",characters);
+    
+  },[])
 
 
 
