@@ -18,19 +18,31 @@ const LOCAL = "localhost:3001/rickandmorty";
 /*actions-type CREATORS*/
 // add character in home
 export const getCharacter = (id) => {
-  return function (dispatch) {
-    axios.get(`http://${LOCAL}/character/${id}`).then(({ data }) => {
+  return async function(dispatch) {
+    try {
+      const {data} = await axios.get(`http://${LOCAL}/character/${id}`);
       dispatch({ type: GET_CHARACTER, payload: data });
-    });
+    } catch (error) {
+      window.alert(error.response.data.message);
+    }
+    // axios.get(`http://${LOCAL}/character/${id}`).then(({ data }) => {
+    //   dispatch({ type: GET_CHARACTER, payload: data });
+    // });
   };
 };
 
 // use character in detail
 export const getCharacterDetail = (id) => {
-  return function (dispatch) {
-    axios.get(`http://${LOCAL}/character/${id}`).then(({ data }) => {
+  return async function (dispatch) {
+    try {
+      const {data} = await axios.get(`http://${LOCAL}/character/${id}`);
       dispatch({ type: GET_CHARACTER_DETAIL, payload: data });
-    });
+    } catch (error) {
+      window.alert(error.response.data.message);
+    }
+    // axios.get(`http://${LOCAL}/character/${id}`).then(({ data }) => {
+    //   dispatch({ type: GET_CHARACTER_DETAIL, payload: data });
+    // });
   };
 };
 
@@ -48,32 +60,35 @@ export const cleanDetail = () => {
 // const addFav = (character) => {
 //   return { type: ADD_FAV, payload: character };
 // };
-export const addFav = (char) => {
+export const addFav = (character) => {
   const endpoint = "http://localhost:3001/rickandmorty/fav";
-  return (dispatch) => {
-    const data = { character: char };
+  return async function(dispatch){
+    try {
+      const {data} = await axios.post(endpoint, {character});
+      dispatch({type: ADD_FAV,payload: data});
+    } catch (error) {
+      window.alert(error.response.data.message);
+    }
+    // const data = { character: char };
     // debugger
-    axios.post(endpoint, data).then(({ data }) => {
-      return dispatch({
-        type: ADD_FAV,
-        payload: data,
-      });
-    });
+    // axios.post(endpoint, data).then(({ data }) => {
+    //   return dispatch({type: ADD_FAV,payload: data,});
+    // });
   };
 };
 
-// export const removeFav = (id) => {
-//   return { type: REMOVE_FAV, payload: id };
-// };
 export const removeFav = (id) => {
   const endpoint = "http://localhost:3001/rickandmorty/fav/" + id;
-  return (dispatch) => {
-    axios.delete(endpoint).then(({ data }) => {
-      return dispatch({
-        type: REMOVE_FAV,
-        payload: data,
-      });
-    });
+  return async function(dispatch){
+    try {
+      const {data} = await axios.delete(endpoint);
+      dispatch({type: REMOVE_FAV,payload: data,})
+    } catch (error) {
+      window.alert(error.response.data.message);
+    }
+    // axios.delete(endpoint).then(({ data }) => {
+    //   return dispatch({type: REMOVE_FAV,payload: data,});
+    // });
   };
 };
 
@@ -85,7 +100,7 @@ export const orderCards = (order) => {
   return { type: ORDER, payload: order };
 };
 
-/* PETICION AL SERVER DE LA API DE RICK AND MORTY */
+/* PETICION AL SERVER DE LA API DE RICK AND MORTY CON FETCH Y PROMESAS */
 // const getCharacter = (id) => {
 //   return function (dispatch) {
 //     return fetch(`https://rickandmortyapi.com/api/character/${id}`)

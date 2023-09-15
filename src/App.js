@@ -40,14 +40,23 @@ function App() {
   //   }
   // };
 
-  const login = (userData) => {
-    const { email, password } = userData;
-    const URL = "http://localhost:3001/rickandmorty/login/";
-    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+  const login = async (userData) => {
+    try {
+      const { email, password } = userData;
+      const URL = "http://localhost:3001/rickandmorty/login/";
+      const {data} =  await axios(URL + `?email=${email}&password=${password}`);
       const { access } = data;
       setAccess(data);
       access ? navigate("/home") : alert("Email o contraseña incorrecta")
-    });
+    } catch (error) {
+      window.alert(error.response.data.response);
+    }
+
+    // axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+    //   const { access } = data;
+    //   setAccess(data);
+    //   access ? navigate("/home") : alert("Email o contraseña incorrecta")
+    // });
   };
 
   const logout = () => {
@@ -63,24 +72,7 @@ function App() {
       dispatch(getCharacter(id));
     } else window.alert("No existe ese ID o es Incorrecto");
   }
-  // function onSearch(id) {
-  //   if(checkId(id)){
-  //     axios(`https://rickandmortyapi.com/api/character/${id}`).then(
-  //       ({ data }) => {
-  //         if (!characters.some((character) => character.id === data.id)) {
-  //           /*El metodo some verifica si cada elemento(character) es igual al nuevo personaje ingresado(data.id)
-  //           */
-  //           console.log('Personaje Ingresado, data:',data)
-  //           setCharacters([...characters, data]); // [ {data},{data},{data},{data}...]
-  //         }else{
-  //           window.alert("Cuidaoo, ese personaje ya existe");
-  //         }
-  //       }
-  //     );
-  //   }else {
-  //     window.alert("No existe ese ID o es Incorrecto");
-  //   }
-  // }
+
 
   const checkId = (id) => {
     return id > 0 && id <= 826 && !isNaN(id);

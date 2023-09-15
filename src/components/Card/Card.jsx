@@ -35,7 +35,7 @@ export default function Card(props) {
   const handleClose = () => {
     props.onClose(props.id);
     /* Borra en Home y borra en Favoritos */
-    dispatch(removeFav(props.id));
+    dispatch(removeFav(props.id)); /*COMENTA AQUI SI SOLO QUIERES BORRAR EN FAVORITOS */
   };
 
   return (
