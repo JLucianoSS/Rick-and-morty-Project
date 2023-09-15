@@ -1,15 +1,23 @@
-import { GET_CHARACTER,GET_CHARACTER_DETAIL, ADD_CHARACTERS,CLEAN_DETAIL, ADD_FAV, FILTER, ORDER, REMOVE_FAV } from "./actions";
+import {
+  GET_CHARACTER,
+  GET_CHARACTER_DETAIL,
+  ADD_CHARACTERS,
+  CLEAN_DETAIL,
+  ADD_FAV,
+  FILTER,
+  ORDER,
+  REMOVE_FAV,
+} from "./actions";
 
 const initialState = {
-  characters: [],       // home state
-  characterDetail: [],  // detail state
-  myFavorites: [],      //favorites state
-  allCharacters: [],    //aux order and filter favorites
+  characters: [], // home state
+  characterDetail: [], // detail state
+  myFavorites: [], //favorites state
+  allCharacters: [], //aux order and filter favorites
 };
 
 const rootReducer = (state = initialState, action) => {
   switch (action.type) {
-
     /*AÑADE PERSONAJES */
     case GET_CHARACTER:
       const characterExist = state.characters.some(
@@ -29,47 +37,54 @@ const rootReducer = (state = initialState, action) => {
     case GET_CHARACTER_DETAIL:
       return {
         ...state,
-        characterDetail: action.payload
-      }
+        characterDetail: action.payload,
+      };
 
     /*BORRA/ES DECIR CREA UN NUEVO ARRAY DE 
     CHARACTERS */
     case ADD_CHARACTERS:
       return {
         ...state,
-        characters:action.payload
-      }
+        characters: action.payload,
+      };
 
     /*LIMPIA EL DETALLE DE UN PERSONAJE */
     case CLEAN_DETAIL:
       return {
         ...state,
-        characterDetail: {}
-      }
-
+        characterDetail: {},
+      };
 
     /*AÑADE PERSONAJES A FAVORITOS */
     case ADD_FAV:
       return {
         ...state,
-        allCharacters: [...state.allCharacters, action.payload],
-        myFavorites: [...state.myFavorites, action.payload],
+        myFavorites: action.payload,
+        allCharacters: action.payload,
       };
+    // case ADD_FAV:
+    //   return {
+    //     ...state,
+    //     allCharacters: [...state.allCharacters, action.payload],
+    //     myFavorites: [...state.myFavorites, action.payload],
+    //   };
 
     /*BORRA PERSONAJES DE FAVORITOS */
-    case REMOVE_FAV:
-      return {
-        ...state,
-        myFavorites: state.myFavorites.filter(
-          (myFavorite) => myFavorite.id !== Number(action.payload)
-        ),
-      };
+    case "REMOVE_FAV":
+      return { ...state, myFavorites: action.payload };
+    // case REMOVE_FAV:
+    //   return {
+    //     ...state,
+    //     myFavorites: state.myFavorites.filter(
+    //       (myFavorite) => myFavorite.id !== Number(action.payload)
+    //     ),
+    //   };
 
     /*FILTRA PERSONAJES EN FAVORITOS */
     case FILTER:
       const filterByGender = state.allCharacters.filter((char) => {
         if (char.gender === action.payload) return true;
-        else if (action.payload === "Todos") return true;    
+        else if (action.payload === "Todos") return true;
         return false;
       });
       return {

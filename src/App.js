@@ -31,13 +31,23 @@ function App() {
   const EMAIL = "jorgelss912345@gmail.com";
   const PASSWORD = "Luciano96";
 
+  // const login = (userData) => {
+  //   if (userData.password === PASSWORD && userData.email === EMAIL) {
+  //     setAccess(true);
+  //     navigate("/home");
+  //   } else {
+  //     alert("Email o contraseña incorrecta");
+  //   }
+  // };
+
   const login = (userData) => {
-    if (userData.password === PASSWORD && userData.email === EMAIL) {
-      setAccess(true);
-      navigate("/home");
-    } else {
-      alert("Email o contraseña incorrecta");
-    }
+    const { email, password } = userData;
+    const URL = "http://localhost:3001/rickandmorty/login/";
+    axios(URL + `?email=${email}&password=${password}`).then(({ data }) => {
+      const { access } = data;
+      setAccess(data);
+      access ? navigate("/home") : alert("Email o contraseña incorrecta")
+    });
   };
 
   const logout = () => {
