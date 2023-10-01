@@ -1,24 +1,58 @@
+/* .fondoHome {
+   
+    background-image: url('../../assets/images/background-home.png'); 
+    background-size: cover; 
+    background-position: center; 
+    background-attachment: fixed;
+    background-repeat: no-repeat; 
+    
+    background-color: rgb(174, 174, 174);
+    height: 100vh;
+    max-height: auto;
+  }
+*/
+
+
+
 .contenedorHome{
-    /* background-color: gray; */
+    /* background-color: rgb(174, 174, 174); */
     /* border: 2px solid black; */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    margin: 20px;
-    
-    
+    margin-left: 20px;
+    margin-right: 20px;
     
 }
 
 .button{
-    border: 2px solid greenyellow;
+    /* border: 2px solid greenyellow; */
     margin-top: 10px;
     margin-bottom: 10px;
+
 }
 
+.imgrandon {
+    width: 30px;
+    height: 29px;
+}
+
+.containerSpan {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+
+}
+
+
 .cards{
-    align-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
 }
 

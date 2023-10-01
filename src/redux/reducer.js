@@ -71,7 +71,10 @@ const rootReducer = (state = initialState, action) => {
 
     /*BORRA PERSONAJES DE FAVORITOS */
     case REMOVE_FAV:
-      return { ...state, myFavorites: action.payload };
+      return { ...state, 
+        myFavorites: action.payload,
+        allCharacters: action.payload,
+      };
     // case REMOVE_FAV:
     //   return {
     //     ...state,

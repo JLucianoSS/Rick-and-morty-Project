@@ -1,5 +1,31 @@
 .contenedorSearchBar{
-    /* background-color: yellow; */
-    /* padding: 5px; */
-    /* border: 2px solid blue; */
+    /* background-color: yellow;  */
+    padding: 5px;
+    border: 1px solid gray;
+    display: flex;
+    border-radius: 5px; 
 }
+
+
+.input {
+    border: 2px solid #00b5cc;
+    border-radius: 5px; 
+
+    height: 25px; 
+    width: 80px;
+    padding: 10px; 
+    font-size: 14px; 
+   
+}
+
+
+.btn {
+    border: none; 
+    color: black; 
+    padding: 3px 13px; 
+    cursor: pointer; 
+    border-radius: 5px; 
+  }
+  
+  .primary {background-color: white; border: 2px solid #00b5cc;} 
+  .primary:hover {background: #00b5cc; color: white;}

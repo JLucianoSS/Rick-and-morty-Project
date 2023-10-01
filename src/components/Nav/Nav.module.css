@@ -39,6 +39,17 @@
         margin-top: 0;
         width: 130px;
         height: 60px;
+        position: relative;
+    }
+    .menu{
+        /* border: 2px solid green; */
+        align-self: center;
+        
+    }
+    .searchBar{
+        /* border: 2px solid purple; */
+        margin-top: 12px;
+        align-self: center;
     }
     
 }

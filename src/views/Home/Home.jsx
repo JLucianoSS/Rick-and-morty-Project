@@ -1,30 +1,41 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Cards from "../../components/Cards/Cards";
 import style from "./Home.module.css";
-import getRandomId from './utils'
+import getRandomId from "./utils";
+import imgrandon from "../../assets/icons/barajar.png";
 
 const Home = (props) => {
-  const {characters, onSearch, onClose, } = props;
+  const { characters, onSearch, onClose } = props;
 
-  useEffect(()=>{
-    console.log("CARACTERES",characters);
-    
-  },[])
-
-
+  useEffect(() => {
+    console.log("CARACTERES", characters);
+  }, []);
 
   return (
     <>
-      <div className={style.contenedorHome}>
+      <div className={style.fondoHome}>
+        <div className={style["contenedorHome"]}>
+          <button
+            className={style.button}
+            type="button"
+            onClick={() => onSearch(getRandomId())}
+          >
+            <img className={style.imgrandon} src={imgrandon} alt="imgrandon" />
+          </button>
 
-        <button className={style.button} type="button" onClick={() => onSearch(getRandomId())}>
-          Random Character
-        </button>
+          {characters.length === 0 ? (
+            <div className={style.containerSpan}>
+              <span>No hay personajes</span>
+              <p>Agrega algunos ¡Vamos!</p>
+            </div>
+          ) : (
+            <div className={style.cards}>
+              <p>Personajes agregados: {characters.length}</p>
 
-        <div className={style.cards}>
-          <Cards characters={characters} onClose={onClose} />
+              <Cards characters={characters} onClose={onClose} />
+            </div>
+          )}
         </div>
-
       </div>
     </>
   );

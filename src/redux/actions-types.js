@@ -61,7 +61,7 @@ export const cleanDetail = () => {
 //   return { type: ADD_FAV, payload: character };
 // };
 export const addFav = (character) => {
-  const endpoint = "http://localhost:3001/rickandmorty/fav";
+  const endpoint = `http://${LOCAL}/fav`;
   return async function(dispatch){
     try {
       const {data} = await axios.post(endpoint, {character});
@@ -78,7 +78,7 @@ export const addFav = (character) => {
 };
 
 export const removeFav = (id) => {
-  const endpoint = "http://localhost:3001/rickandmorty/fav/" + id;
+  const endpoint = `http://${LOCAL}/fav/${id}`;
   return async function(dispatch){
     try {
       const {data} = await axios.delete(endpoint);

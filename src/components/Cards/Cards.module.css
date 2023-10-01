@@ -6,11 +6,12 @@
     /* border: 2px solid purple; */
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
+    justify-content: center;
+    align-items: center; 
+
     padding: 20px;
 }
 
 /* .card{
-
+    flex: 1;
 } */
