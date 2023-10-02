@@ -46,14 +46,14 @@ const Favorites = () => {
   return (
     <>
       <div className={style.container_selects}>
-        <div className="favorites__ordered">
+        <div className={style.caja}>
           <select onChange={handlerOrder}>
             <option value="A">Ascendente</option>
             <option value="D">Descendente</option>
           </select>
         </div>
 
-        <div className="favorites__container">
+        <div className={style.caja}>
           <select onChange={handlerFilter}>
             <option value="Todos">All</option>
             <option value="Male">Male</option>

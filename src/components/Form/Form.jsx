@@ -1,11 +1,11 @@
 import { useState } from "react";
 import validate from "./validation";
-import style from './Form.module.css'
+import style from "./Form.module.css";
 
 const Form = (props) => {
   const [userData, setUserData] = useState({
-    email: "",
-    password: "",
+    email: "jorgelss912345@gmail.com",
+    password: "jorge123",
   });
 
   const [errors, setErrors] = useState({});
@@ -23,29 +23,30 @@ const Form = (props) => {
     setUserData({
       ...userData,
       [property]: value,
-    });  //actualiza userData
-    setErrors(validate({
-      ...userData,
-      [property]: value
-    })); //valida errors y actualiza
+    }); //actualiza userData
+    setErrors(
+      validate({
+        ...userData,
+        [property]: value,
+      })
+    ); //valida errors y actualiza
   };
 
-
-  
   /* En la siguiente función, la sentencia event.preventDefault() evita que  recargue nuevamente la pagina al presionar submit,
   evitando asi este comportamiento que por default ocurre solo en los formularios*/
   const handleSubmit = (event) => {
     event.preventDefault();
     props.login(userData);
-  }
+  };
 
   return (
-    <div className=''>
+    <div className="">
       <form className={style.containerForm} action="" onSubmit={handleSubmit}>
-
-        
-        <label className={style.email_title} htmlFor="">Email:</label>
+        <label className={style.email_title} htmlFor="">
+          Email:
+        </label>
         <input
+          className={style.input}
           type="email"
           value={userData.email}
           name="email"
@@ -53,10 +54,13 @@ const Form = (props) => {
         />
         <p className={style.error}>{errors.email}</p>
 
-        <hr className={style.password_title}/>
+        <hr className={style.password_title} />
 
-        <label className={style.password_title} htmlFor="">Password:</label>
+        <label className={style.password_title} htmlFor="">
+          Password:
+        </label>
         <input
+          className={style.input}
           type="password"
           value={userData.password}
           name="password"
@@ -64,9 +68,9 @@ const Form = (props) => {
         />
         <p className={style.error}>{errors.password}</p>
 
-
-
-        <button type="submit">Submit</button>
+        <button className={`${style.btn} ${style.primary}`} type="submit">
+          Submit
+        </button>
       </form>
     </div>
   );

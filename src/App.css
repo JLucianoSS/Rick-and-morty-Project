@@ -2,6 +2,10 @@
    text-align: center;
 } */
 
-/* body {
+body {
    background-color: rgb(38, 38, 38);
-} */
+}
+
+h1,h2,span,p {
+   color: black;
+}

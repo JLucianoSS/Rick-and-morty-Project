@@ -7,3 +7,13 @@
     justify-content: center;
 
 }
+
+.title{
+    color: white;
+}
+
+.img{
+    width: 35em;
+    height: 23em;
+    border-radius: 20px;
+}

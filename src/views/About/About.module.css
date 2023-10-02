@@ -6,11 +6,21 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 
 .img{
-    height: 300px;
-    width: 500px;
-    border-radius: 5%;
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+}
+
+.title{
+    color: white;
+}
+
+.description{
+    text-align: center;
+    padding: 0px 50px;
 }

@@ -13,29 +13,29 @@ const Home = (props) => {
 
   return (
     <>
-      <div className={style.fondoHome}>
-        <div className={style["contenedorHome"]}>
-          <button
-            className={style.button}
-            type="button"
-            onClick={() => onSearch(getRandomId())}
-          >
-            <img className={style.imgrandon} src={imgrandon} alt="imgrandon" />
-          </button>
+      <div className={style["contenedorHome"]}>
+        <button
+          className={style.button}
+          type="button"
+          onClick={() => onSearch(getRandomId())}
+        >
+          <img className={style.imgrandon} src={imgrandon} alt="imgrandon" />
+        </button>
 
-          {characters.length === 0 ? (
-            <div className={style.containerSpan}>
-              <span>No hay personajes</span>
-              <p>Agrega algunos ¡Vamos!</p>
-            </div>
-          ) : (
-            <div className={style.cards}>
-              <p>Personajes agregados: {characters.length}</p>
+        {characters.length === 0 ? (
+          <div className={style.containerSpan}>
+            <span>No hay personajes</span>
+            <p>¡Genera algunos!</p>
+          </div>
+        ) : (
+          <div className={style.cards}>
+            <p className={style.counter}>
+              Personajes agregados: {characters.length}
+            </p>
 
-              <Cards characters={characters} onClose={onClose} />
-            </div>
-          )}
-        </div>
+            <Cards characters={characters} onClose={onClose} />
+          </div>
+        )}
       </div>
     </>
   );

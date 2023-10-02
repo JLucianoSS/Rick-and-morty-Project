@@ -28,9 +28,6 @@ function App() {
   const characters = useSelector((state) => state.characters);
   const dispatch = useDispatch();
 
-  const EMAIL = "jorgelss912345@gmail.com";
-  const PASSWORD = "Luciano96";
-
   // const login = (userData) => {
   //   if (userData.password === PASSWORD && userData.email === EMAIL) {
   //     setAccess(true);

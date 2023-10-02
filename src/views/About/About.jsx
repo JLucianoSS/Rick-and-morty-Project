@@ -1,12 +1,13 @@
 import style from './About.module.css'
+import imgDev from '../../assets/images/dev.jpeg';
 
 const About = () => {
   return (
     <div className={style.containerAbout}>
-      <h1>Acerca de mi</h1>
-      <h3>Jorge Sánchez</h3>
-      <p>Aplicacion de React en constante desarrollo y actualización</p>
-      <img className={style.img} src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjDsVh5ykxF_5dW9U9-jnt3rYor9gboAlMzBgyHULv26k23-0PgKBFAexKVSgxvmu5UNkFbkK_2dQETcOpGvnojjQokdHm_r0sJWDeO75VEMcGcKOC4V34UXI7s37hYfBSu3OmHekr2Y0-B34n2qceLfuUWORZx3tDq9Md3ycbIcjqcRKkLM9l-NlIl/s1440/rick-morty-temporada-5-2319587.webp" alt="trabajando" />
+      <h1 className={style.title}>Acerca de mi</h1>
+      <img className={style.img} src={imgDev} alt="trabajando" />
+      <h3 className={style.title}>Jorge Sánchez</h3>
+      <p className={style.description}>Hola 👋, gracias por ver mi humilde proyecto. En agradecimiento por visitar este sitio te contaré un chiste. Ahí va: Ser programador es como ser un mago, pero en lugar de lanzar hechizos, escribimos código. Y cuando algo no funciona, no decimos '¡Abracadabra!', sino '¡Stack Overflow! 🤣</p>
       <br />
     </div>
   );

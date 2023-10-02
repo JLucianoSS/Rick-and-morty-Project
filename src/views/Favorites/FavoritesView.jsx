@@ -4,7 +4,7 @@ import styles from "./FavoritesView.module.css";
 const FavoritesView = () => {
   return (
     <div className={styles.containerFavorites}>
-      <h1>Favoritos</h1>
+      <h1 className={styles.title}>Favoritos</h1>
 
       <div>
         <Favorites />
