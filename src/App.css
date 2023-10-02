@@ -3,8 +3,15 @@
 } */
 
 body {
-   background-color: rgb(38, 38, 38);
+   background-image: url('./assets/images/background-home.png'); 
+  background-size: cover; 
+  background-attachment: fixed; 
+  background-position: center; 
 }
+
+
+ 
+
 
 h1,h2,span,p {
    color: black;
